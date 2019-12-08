@@ -20,6 +20,3 @@
     }
  }
  
- function handler2() {
-     document.find('.dropdown-menu').first().stop(true, true).slideDown();
- };
