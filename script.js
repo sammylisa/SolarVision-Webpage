@@ -3,7 +3,7 @@
  * Developed and maintained by Sammy Lisa.
  */
 
-panel.onmouseover = panel.onmouseout = handler;
+panel.onclick = handler;
 
 /**
  * Highlights the panel being hovered over.
@@ -11,10 +11,7 @@ panel.onmouseover = panel.onmouseout = handler;
  */
 async function handler(event) {
     let panelInfo = await setData()
-
-    if (event.type == 'mouseover') {
-        console.log(panelInfo[event.target.id])
-    }
+    console.log(panelInfo[event.target.id])
 }
 
 /**
