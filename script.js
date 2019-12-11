@@ -11,14 +11,9 @@ panel.onmouseover = panel.onmouseout = handler;
  */
 async function handler(event) {
     let panelInfo = await setData()
-    let selection = event.target
 
     if (event.type == 'mouseover') {
-        selection.style.background = 'pink'
-        console.log(panelInfo[selection.id - 1])
-    }
-    if (event.type == 'mouseout') {
-        selection.style.background = 'white'
+        console.log(panelInfo[event.target.id])
     }
 }
 
@@ -66,10 +61,22 @@ async function setData() {
             donor: 'Anna',
             energy_today: panelData.energy_today
         },
+        {
+            donor: 'James',
+            energy_today: panelData.energy_today
+        },
+        {
+            donor: 'Blair',
+            energy_today: panelData.energy_today
+        },
+        {
+            donor: 'Trevor',
+            energy_today: panelData.energy_today
+        },
     ]
 
-    for (let i = 1; i < 10; i++) {
-        panelInfo[i-1].id = parseInt(i)
+    for (let i = 0; i < 12; i++) {
+        panelInfo[i].id = parseInt(i)
     }
     return panelInfo
 }
