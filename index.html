@@ -43,32 +43,62 @@
   <img src="example-panel.png" usemap="#image-map" class="rounded mx-auto d-block">
 
   <map name="image-map" id="panel">
-    <area coords="81,128,189,113,317,250,212,298" id="0" shape="poly" type="button">
-    <area coords="1,15,100,18,192,110,79,126" id="1" shape="poly" type="button">
-    <area coords="105,18,182,19,268,99,194,110" id="2" shape="poly" type="button">
-    <area coords="193,113,273,103,393,215,324,251" id="3" shape="poly" type="button">
-    <area coords="187,20,248,23,332,94,274,102" id="4" shape="poly" type="button">
-    <area coords="277,104,334,96,449,191,397,214" id="5" shape="poly" type="button">
-    <area coords="248,23,299,23,380,88,333,94" id="6" shape="poly" type="button">
-    <area coords="336,95,384,90,491,173,449,190" id="7" shape="poly" type="button">
-    <area coords="343,25,300,23,383,89,420,84" id="8" shape="poly" type="button">
-    <area coords="387,91,424,85,527,159,494,174" id="9" shape="poly" type="button">
-    <area coords="346,27,376,25,454,80,422,85" id="10" shape="poly" type="button">
-    <area coords="546,146,527,160,423,86,456,80" id="11" shape="poly" type="button">
+    <area coords="81,128,189,113,317,250,212,298" id="0" shape="poly" type="button" data-maphilight='{"fillOpacity":0.6}' data-toggle="modal" data-target="#exampleModalCenter">
+    <area coords="1,15,100,18,192,110,79,126" id="1" shape="poly" type="button" data-maphilight='{"fillOpacity":0.6}' data-toggle="modal" data-target="#exampleModalCenter">
+    <area coords="105,18,182,19,268,99,194,110" id="2" shape="poly" type="button" data-maphilight='{"fillOpacity":0.6}' data-toggle="modal" data-target="#exampleModalCenter">
+    <area coords="193,113,273,103,393,215,324,251" id="3" shape="poly" type="button" data-maphilight='{"fillOpacity":0.6}' data-toggle="modal" data-target="#exampleModalCenter">
+    <area coords="187,20,248,23,332,94,274,102" id="4" shape="poly" type="button" data-maphilight='{"fillOpacity":0.6}' data-toggle="modal" data-target="#exampleModalCenter">
+    <area coords="277,104,334,96,449,191,397,214" id="5" shape="poly" type="button" data-maphilight='{"fillOpacity":0.6}' data-toggle="modal" data-target="#exampleModalCenter">
+    <area coords="248,23,299,23,380,88,333,94" id="6" shape="poly" type="button" data-maphilight='{"fillOpacity":0.6}' data-toggle="modal" data-target="#exampleModalCenter">
+    <area coords="336,95,384,90,491,173,449,190" id="7" shape="poly" type="button" data-maphilight='{"fillOpacity":0.6}' data-toggle="modal" data-target="#exampleModalCenter">
+    <area coords="343,25,300,23,383,89,420,84" id="8" shape="poly" type="button" data-maphilight='{"fillOpacity":0.6}' data-toggle="modal" data-target="#exampleModalCenter">
+    <area coords="387,91,424,85,527,159,494,174" id="9" shape="poly" type="button" data-maphilight='{"fillOpacity":0.6}' data-toggle="modal" data-target="#exampleModalCenter">
+    <area coords="346,27,376,25,454,80,422,85" id="10" shape="poly" type="button" data-maphilight='{"fillOpacity":0.6}' data-toggle="modal" data-target="#exampleModalCenter">
+    <area coords="546,146,527,160,423,86,456,80" id="11" shape="poly" type="button" data-maphilight='{"fillOpacity":0.6}' data-toggle="modal" data-target="#exampleModalCenter">
   </map>
 
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Panel Info</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p id="donorName">Donor Name</p>
+            <p id="energy">Energy</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- jQuery first, then Maphilight, then Popper.js, then Bootstrap JS -->
   <script src="backend.js"></script>
   <script src="script.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/maphilight/1.4.0/jquery.maphilight.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      $('.rounded').maphilight()
+    })
+
+    $(function () {
+      $('[data-toggle="popover"]').popover({
+        container: 'body'
+      })
+    })
+  </script>
 </body>
 
 </html>

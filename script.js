@@ -1,21 +1,22 @@
-/**
+/*
  * The main JavaScript file for SolarVision's solar panel site.
  * Developed and maintained by Sammy Lisa.
  */
 
-panel.onclick = handler;
+panel.onclick = displayInfo
 
 /**
- * Highlights the panel being hovered over.
- * Logs the data for each panel
+ * Displays the data for each panel
  */
-async function handler(event) {
-    let panelInfo = await setData()
-    console.log(panelInfo[event.target.id])
+async function displayInfo(event) {
+    let panels = await setData()
+    let panelInfo = panels[event.target.id]
+    document.getElementById('donorName').innerHTML = 'Donor: ' + panelInfo.donor
+    document.getElementById('energy').innerHTML = 'Energy generated today: ' + panelInfo.energy_today + ' kilowatts'
 }
 
 /**
-* blank map used to test the data-fetching system
+* sets the data for the solar panel farm
 * @returns an array containing the info for each panel
 */
 async function setData() {
