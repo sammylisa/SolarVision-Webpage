@@ -5,8 +5,21 @@
 
 panel.onclick = displayInfo
 
+
+/*
+ * declare global var containing panel data and load as soon as window loads.
+ * this way, the data is all loaded at once and there is no lag when grabbing
+ * data from different panels
+ */
+
+let panelData
+
+(async () => {
+    panelData = await getData()
+})()
+
 /**
- * Displays the data for each panel
+ * displays the data for each panel
  */
 async function displayInfo(event) {
     let panels = await setData()
@@ -20,7 +33,6 @@ async function displayInfo(event) {
 * @returns an array containing the info for each panel
 */
 async function setData() {
-    let panelData = await getData()
 
     let panelInfo = [
         {
