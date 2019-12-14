@@ -12,76 +12,82 @@ panel.onclick = displayInfo
  * data from different panels
  */
 
-let panelData
+let farmData
 
 (async () => {
-    panelData = await getData()
+    farmData = await getData()
+    let homesPowered = Math.round(farmData.energy_today / 28.9)
+    document.getElementById("totaloutput").innerHTML = farmData.energy_today
+    document.getElementById("homes").innerHTML = homesPowered
 })()
 
 /**
  * displays the data for each panel
  */
 async function displayInfo(event) {
-    let panels = await setData()
+    let panels = setData()
     let panelInfo = panels[event.target.id]
     document.getElementById('donorName').innerHTML = 'Donor: ' + panelInfo.donor
-    document.getElementById('energy').innerHTML = 'Energy generated today: ' + panelInfo.energy_today + ' kilowatts'
+    document.getElementById('energy').innerHTML = 'Energy generated today: ' + panelInfo.energy_today + ' kilowatt hours'
 }
 
 /**
 * sets the data for the solar panel farm
 * @returns an array containing the info for each panel
 */
-async function setData() {
+function setData() {
+
+    // total farm data / # of panels
+    let panelData = Math.round(farmData.energy_today / 12);
 
     let panelInfo = [
         {
             donor: 'Mike',
-            energy_today: panelData.energy_today
+            energy_today: panelData
         },
         {
             donor: 'Laura',
-            energy_today: panelData.energy_today
+            energy_today: panelData
         },
         {
             donor: 'Sammy',
-            energy_today: panelData.energy_today
+            energy_today: panelData
         },
         {
             donor: 'Thomas',
-            energy_today: panelData.energy_today
+            energy_today: panelData
         },
         {
             donor: 'Greg',
-            energy_today: panelData.energy_today
+            energy_today: panelData
         },
         {
             donor: 'Jake',
-            energy_today: panelData.energy_today
+            energy_today: panelData
         },
         {
             donor: 'Jeff',
-            energy_today: panelData.energy_today
+            energy_today: panelData
         },
         {
             donor: 'Oscar',
-            energy_today: panelData.energy_today
+            energy_today: panelData
         },
         {
             donor: 'Anna',
-            energy_today: panelData.energy_today
+            energy_today: panelData
         },
         {
             donor: 'James',
-            energy_today: panelData.energy_today
+            energy_today: panelData
         },
         {
             donor: 'Blair',
-            energy_today: panelData.energy_today
+            energy_today: panelData
         },
         {
             donor: 'Trevor',
-            energy_today: panelData.energy_today
+            energy_today: panelData
         },
     ]
 
