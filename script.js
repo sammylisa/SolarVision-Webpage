@@ -5,21 +5,22 @@
 
 panel.onclick = displayInfo
 
-
 /*
  * declare global var containing panel data and load as soon as window loads.
  * this way, the data is all loaded at once and there is no lag when grabbing
  * data from different panels
  */
 
-let farmData
+ let farmData
 
-(async () => {
+window.onload = async function() {
     farmData = await getData()
     let homesPowered = Math.round(farmData.energy_today / 28.9)
-    document.getElementById("totaloutput").innerHTML = farmData.energy_today
-    document.getElementById("homes").innerHTML = homesPowered
-})()
+    var countUpTotal = new CountUp('totaloutput', 0, farmData.energy_today, 0, 3);
+    var countUpHomes = new CountUp('homes', 0, homesPowered, 0, 3);
+    countUpTotal.start()
+    countUpHomes.start()
+}
 
 /**
  * displays the data for each panel
@@ -28,7 +29,7 @@ async function displayInfo(event) {
     let panels = setData()
     let panelInfo = panels[event.target.id]
     document.getElementById('donorName').innerHTML = 'Donor: ' + panelInfo.donor
-    document.getElementById('energy').innerHTML = 'Energy generated today: ' + panelInfo.energy_today + ' kilowatt hours'
+    document.getElementById('energy').innerHTML = 'Energy generated today: ' + panelInfo.energy_today + ' kWh'
 }
 
 /**
