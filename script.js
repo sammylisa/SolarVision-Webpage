@@ -12,12 +12,14 @@ panel.onclick = displayInfo
  */
 
  let farmData
+ let panels
 
 window.onload = async function() {
     farmData = await getData()
-    let homesPowered = Math.round(farmData.energy_today / 28.9)
-    var countUpTotal = new CountUp('totaloutput', 0, farmData.energy_today, 0, 3);
-    var countUpHomes = new CountUp('homes', 0, homesPowered, 0, 3);
+    panels = setData()
+    let homesPowered = Math.round(farmData.energy_today / 28900)
+    var countUpTotal = new CountUp('totaloutput', 0, farmData.energy_today, 0, 3)
+    var countUpHomes = new CountUp('homes', 0, homesPowered, 0, 3)
     countUpTotal.start()
     countUpHomes.start()
 }
@@ -26,10 +28,9 @@ window.onload = async function() {
  * displays the data for each panel
  */
 async function displayInfo(event) {
-    let panels = setData()
     let panelInfo = panels[event.target.id]
     document.getElementById('donorName').innerHTML = 'Donor: ' + panelInfo.donor
-    document.getElementById('energy').innerHTML = 'Energy generated today: ' + panelInfo.energy_today + ' kWh'
+    document.getElementById('energy').innerHTML = 'Energy generated today: ' + panelInfo.energy_today + ' watt hours'
 }
 
 /**
