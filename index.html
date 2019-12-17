@@ -26,7 +26,7 @@
     </ul>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <form class="form-inline" id="panelsearch">
+        <form class="form-inline" id="panelsearch" autocomplete="off">
           <div class="md-form my-0">
             <input class="form-control" id="search" type="search" placeholder="Find my panel" aria-label="Search">
           </div>
@@ -133,13 +133,13 @@
     // when user types name, highlight the panel
     $('#search').keyup(function (e) {
       panels.forEach(panel => {
-        if (panel.donor == e.target.value) {
+        if (panel.donor.toUpperCase() == e.target.value.toUpperCase()) {
           $('#' + panel.id).mouseover()
         }
       })
     }).keyup(function (e) {
       let panelMatch = panels.filter(function (panel) {
-        return panel.donor == e.target.value
+        return panel.donor.toUpperCase() == e.target.value.toUpperCase()
       })
       if (panelMatch.length == 0) {
         panels.forEach(panel => {

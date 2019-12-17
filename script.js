@@ -45,7 +45,7 @@ document.getElementById('panelsearch').addEventListener('submit', function(e) {
     e.preventDefault()
     let input = document.getElementById('search').value
     panels.forEach(panel => {
-        if (panel.donor == input) {
+        if (panel.donor.toUpperCase() == input.toUpperCase()) {
             document.getElementById(panel.id).click()
         }
     });
