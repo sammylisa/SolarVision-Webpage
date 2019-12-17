@@ -28,7 +28,7 @@
       <li class="nav-item">
         <form class="form-inline" id="panelsearch">
           <div class="md-form my-0">
-            <input class="form-control" id="search" type="text" placeholder="Find my panel" aria-label="Search">
+            <input class="form-control" id="search" type="search" placeholder="Find my panel" aria-label="Search">
           </div>
         </form>
       </li>
@@ -130,6 +130,7 @@
       $('.rounded').maphilight()
     })
 
+    // when user types name, highlight the panel
     $('#search').keyup(function (e) {
       panels.forEach(panel => {
         if (panel.donor == e.target.value) {

@@ -33,6 +33,24 @@ async function displayInfo(event) {
     document.getElementById('energy').innerHTML = 'Energy generated today: ' + panelInfo.energy_today + ' watt hours'
 }
 
+function displayModalOnClick(panel) {
+    document.getElementById('donorName').innerHTML = 'Donor: ' + panel.donor
+    document.getElementById('energy').innerHTML = 'Energy generated today: ' + panel.energy_today + ' watt hours'
+}
+
+/**
+ * finds donor name that matches text input and displays its data on return
+ */
+document.getElementById('panelsearch').addEventListener('submit', function(e) {
+    e.preventDefault()
+    let input = document.getElementById('search').value
+    panels.forEach(panel => {
+        if (panel.donor == input) {
+            document.getElementById(panel.id).click()
+        }
+    });
+}, false);
+
 /**
 * sets the data for the solar panel farm
 * @returns an array containing the info for each panel
