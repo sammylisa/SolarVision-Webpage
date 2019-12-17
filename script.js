@@ -4,6 +4,7 @@
  */
 
 panel.onclick = displayInfo
+panelmodal.onkeyup = closeModal
 
 /*
  * declare global var containing panel data and load as soon as window loads.
@@ -11,13 +12,13 @@ panel.onclick = displayInfo
  * data from different panels
  */
 
- let farmData
- let panels
+let farmData
+let panels
 
-window.onload = async function() {
+window.onload = async function () {
     farmData = await getData()
     panels = setData()
-    let homesPowered = Math.round(farmData.energy_today / 28900)
+    let homesPowered = Math.round(farmData.energy_today / 28.9)
     var countUpTotal = new CountUp('totaloutput', 0, farmData.energy_today, 0, 3)
     var countUpHomes = new CountUp('homes', 0, homesPowered, 0, 3)
     countUpTotal.start()
@@ -30,18 +31,24 @@ window.onload = async function() {
 async function displayInfo(event) {
     let panelInfo = panels[event.target.id]
     document.getElementById('donorName').innerHTML = 'Donor: ' + panelInfo.donor
-    document.getElementById('energy').innerHTML = 'Energy generated today: ' + panelInfo.energy_today + ' watt hours'
+    document.getElementById('energy').innerHTML = 'Energy generated today: ' + panelInfo.energy_today + ' kilowatt hours'
 }
 
-function displayModalOnClick(panel) {
-    document.getElementById('donorName').innerHTML = 'Donor: ' + panel.donor
-    document.getElementById('energy').innerHTML = 'Energy generated today: ' + panel.energy_today + ' watt hours'
+/**
+ * close modal when user hits enter key 
+ */
+function closeModal(e) {
+    var key = 'which' in e ? e.which : e.keyCode
+    if (key == 13) {
+        $('#panelmodal').modal('hide')
+        $('#search').value = ""
+    }
 }
 
 /**
  * finds donor name that matches text input and displays its data on return
  */
-document.getElementById('panelsearch').addEventListener('submit', function(e) {
+document.getElementById('panelsearch').addEventListener('submit', function (e) {
     e.preventDefault()
     let input = document.getElementById('search').value
     panels.forEach(panel => {
