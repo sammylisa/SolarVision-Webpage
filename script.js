@@ -51,12 +51,17 @@ function closeModal(e) {
 document.getElementById('panelsearch').addEventListener('submit', function (e) {
     e.preventDefault()
     let input = document.getElementById('search').value
+    let found = false
     panels.forEach(panel => {
         if (panel.donor.toUpperCase() == input.toUpperCase()) {
             document.getElementById(panel.id).click()
+            found = true
         }
     });
-}, false);
+    if (!found) {
+        alert('Panel not found...check another project!')
+    }
+});
 
 /**
 * sets the data for the solar panel farm
