@@ -11,7 +11,7 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
   <link rel="shortcut icon" type="image/x-icon"
-    href="https://images.squarespace-cdn.com/content/v1/5d16ca12fa8bf80001f6b687/1563537358448-SRLEWHMY4QFH4TO27TVP/ke17ZwdGBToddI8pDm48kBq5jTg9GrDdjrcoFKgpHFioCXeSvxnTEQmG4uwOsdIceAoHiyRoc52GMN5_2H8Wp2gBzJ2oAthv1UoGFavtrfSQsxVQyaUqZSJ8SRw1qpQofsFrCEB34dVfN4sCXJQDKw/favicon.ico">
+    href="https://images.squarespace-cdn.com/content/v1/5d1689e4284f1b0001076151/1563887405108-2KBKJ1TQ1NHRMBTQ5B9T/ke17ZwdGBToddI8pDm48kPxlMNEk4j_Teh00955LaYBZw-zPPgdn4jUwVcJE1ZvWEtT5uBSRWt4vQZAgTJucoTqqXjS3CfNDSuuf31e0tVFt8wVQhVBVg__y1FO0AbB6ADug6gmNyk8y4EQ95zOcohhtF8AAzT7knFmzf0PeypQ/favicon.ico">
   <title>Solarvision Projects</title>
 </head>
 
@@ -19,8 +19,8 @@
   <nav class="navbar navbar-light bg-light">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a href="https://www.solarvisionllc.net/">
-          <img src="logo.jpg" alt="Solarvision" height="30%" width="30%"></img>
+        <a href="https://www.sharedpowernetwork.org/">
+          <img src="SHP_logo.jpg" alt="Shared Power Network" height="30%" width="30%"></img>
         </a>
       </li>
     </ul>
@@ -55,7 +55,7 @@
 
   <br>
 
-  <img src="example-panel.png" usemap="#image-map" class="rounded mx-auto d-block">
+  <img src="example-panel.png" usemap="#image-map" class="rounded img-fluid mx-auto d-block">
 
   <map name="image-map" id="panel">
     <area coords="81,128,189,113,317,250,212,298" id="0" shape="poly" type="button"
@@ -106,7 +106,7 @@
   </div>
 
   <div class="fixed-bottom d-flex justify-content-center">
-    <p class="lead">Interested in donating a panel? <a href="https://www.solarvisionllc.net/contact-us-1">Contact
+    <p class="lead">Interested in donating a panel? <a href="https://www.sharedpowernetwork.org/contact-us">Contact
         Us</a></p>
   </div>
   <div class="fixed-bottom d-flex flex-row-reverse">
@@ -124,7 +124,12 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
   <script type="text/javascript"
     src="https://cdnjs.cloudflare.com/ajax/libs/maphilight/1.4.0/jquery.maphilight.min.js"></script>
+  <script src="resizing-map-helper/jquery.rwdImageMaps.min.js"></script>
   <script type="text/javascript">
+
+    $(document).ready(function (e) {
+      $('img[usemap]').rwdImageMaps();
+    });
 
     // highlight sections of the picture
     $(function () {
