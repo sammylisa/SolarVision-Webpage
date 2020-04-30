@@ -2,8 +2,10 @@
  * The main JavaScript file for SolarVision's solar panel site.
  * Developed and maintained by Sammy Lisa.
  */
-
-panel.onclick = displayInfo
+let panel1
+let panel2
+panel1 ? panel1.onclick = displayInfo : null
+panel2 ? panel2.onclick = displayInfo : null
 panelmodal.onkeyup = closeModal
 
 /*
@@ -18,8 +20,8 @@ let panels
 window.onload = async function () {
     farmData = await getData()
     panels = setData()
-    let homesPowered = Math.round(farmData.energy_today / 28.9)
-    var countUpTotal = new CountUp('totaloutput', 0, farmData.energy_today, 0, 3)
+    let homesPowered = Math.round(farmData.last_report_at / 28900000)
+    var countUpTotal = new CountUp('totaloutput', 0, farmData.last_report_at / 1000000, 0, 3)
     var countUpHomes = new CountUp('homes', 0, homesPowered, 0, 3)
     countUpTotal.start()
     countUpHomes.start()

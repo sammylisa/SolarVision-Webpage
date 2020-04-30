@@ -13,6 +13,6 @@ let url = "https://api.enphaseenergy.com/api/v2/systems?key=69d4c9621525a3d48639
 async function getData() {
     let response = await fetch(url)
     let data = await response.json()
-    console.log(data.systems[0])
-    return data
+    console.log(data.systems[0].meta);
+    return data.systems[0].meta;
 }
