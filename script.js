@@ -2,8 +2,10 @@
  * The main JavaScript file for SolarVision's solar panel site.
  * Developed and maintained by Sammy Lisa.
  */
-let panel1
-let panel2
+//let panel1 = document.getElementById("panel1");
+//let panel2 = document.getElementById("panel2");
+let panel1 = document.getElementById("panel1");
+let panel2 = document.getElementById("panel2");
 panel1 ? panel1.onclick = displayInfo : null
 panel2 ? panel2.onclick = displayInfo : null
 panelmodal.onkeyup = closeModal
@@ -32,6 +34,7 @@ window.onload = async function () {
  */
 async function displayInfo(event) {
     let panelInfo = panels[event.target.id]
+    console.log(panelinfo);
     document.getElementById('donorName').innerHTML = 'Donor: ' + panelInfo.donor
     document.getElementById('energy').innerHTML = 'Energy generated today: ' + panelInfo.energy_today + ' kilowatt hours'
 }
