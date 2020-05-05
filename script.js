@@ -2,12 +2,8 @@
  * The main JavaScript file for SolarVision's solar panel site.
  * Developed and maintained by Sammy Lisa.
  */
-//let panel1 = document.getElementById("panel1");
-//let panel2 = document.getElementById("panel2");
-let panel1 = document.getElementById("panel1");
-let panel2 = document.getElementById("panel2");
-panel1 ? panel1.onclick = displayInfo : null
-panel2 ? panel2.onclick = displayInfo : null
+panel.onclick = displayInfo
+// panel2.onclick = displayInfo
 panelmodal.onkeyup = closeModal
 
 /*
@@ -21,9 +17,10 @@ let panels
 
 window.onload = async function () {
     farmData = await getData()
+    farmData.energy_today = farmData.last_report_at / 1000000;
     panels = setData()
     let homesPowered = Math.round(farmData.last_report_at / 28900000)
-    var countUpTotal = new CountUp('totaloutput', 0, farmData.last_report_at / 1000000, 0, 3)
+    var countUpTotal = new CountUp('totaloutput', 0, farmData.energy_today, 0, 3)
     var countUpHomes = new CountUp('homes', 0, homesPowered, 0, 3)
     countUpTotal.start()
     countUpHomes.start()
@@ -34,7 +31,6 @@ window.onload = async function () {
  */
 async function displayInfo(event) {
     let panelInfo = panels[event.target.id]
-    console.log(panelinfo);
     document.getElementById('donorName').innerHTML = 'Donor: ' + panelInfo.donor
     document.getElementById('energy').innerHTML = 'Energy generated today: ' + panelInfo.energy_today + ' kilowatt hours'
 }
@@ -126,9 +122,53 @@ function setData() {
             donor: 'Trevor',
             energy_today: panelData
         },
+        {
+            donor: 'Alex',
+            energy_today: panelData
+        },
+        {
+            donor: 'Jordan',
+            energy_today: panelData
+        },
+        {
+            donor: 'Andrew',
+            energy_today: panelData
+        },
+        {
+            donor: 'Peter',
+            energy_today: panelData
+        },
+        {
+            donor: 'Paul',
+            energy_today: panelData
+        },
+        {
+            donor: 'Luke',
+            energy_today: panelData
+        },
+        {
+            donor: 'Blaine',
+            energy_today: panelData
+        },
+        {
+            donor: 'Katie',
+            energy_today: panelData
+        },
+        {
+            donor: 'Jerrod',
+            energy_today: panelData
+        },
+        {
+            donor: 'Madison',
+            energy_today: panelData
+        },
+        {
+            donor: 'Gavin',
+            energy_today: panelData
+        },
     ]
 
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < 23; i++) {
         panelInfo[i].id = parseInt(i)
     }
     return panelInfo
